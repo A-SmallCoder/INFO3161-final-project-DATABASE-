@@ -25,9 +25,10 @@ create table image(
 
 create table post(
     post_id int auto_increment,
-    image_id int,
     user_id int,
+    image_id int,
     post_body text,
+    post_date date,
     primary key(post_id),
     foreign key(image_id) references image(image_id) on delete cascade,
     foreign key(user_id) references user(user_id) on delete cascade
@@ -53,8 +54,18 @@ BEGIN
 insert into profile(user_id,date_created) values
 (new.user_id,curdate());
 END $$
-delimiter ;
+delimiter;
 
+/*trigger to link post to a profile when it is made*/
+Delimiter $$
+CREATE TRIGGER post_trigger
+AFTER insert ON profile
+FOR EACH ROW
+BEGIN
+insert into profile(user_id,post_id,post_date) values
+(new.user_id,new.post_id,now());
+END $$
+delimiter;
 
 /* this gives an error at the moment
 create table group(
