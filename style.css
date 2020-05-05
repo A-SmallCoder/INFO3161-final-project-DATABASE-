@@ -1,0 +1,135 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgba(255, 201, 119, 0.884);
+  background-size: cover;
+  background-position: center;
+  font-family: sans-serif;
+}
+
+.loginbox h1 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 22px;
+}
+
+.signinbox {
+  margin-top: 2%;
+  width: 620px !important;
+  height: 600px !important;
+}
+
+.loginbox {
+  width: 420px;
+  height: auto;
+  background: #000;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 70px 30px;
+}
+
+.loginbox p {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+.loginbox input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"] {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.loginbox input[type="submit"] {
+  border: none;
+  outline: none;
+  height: 40px;
+  background: #fb2525;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+.loginbox input[type="submit"]:hover {
+  cursor: pointer;
+  background: #ffc107;
+  color: #000;
+}
+
+.loginbox a {
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 20px;
+  color: darkgrey;
+}
+
+.loginbox a:hover {
+  color: #ffc107;
+}
+
+.avatar {
+  width: 100px;
+  height: auto;
+  position: absolute;
+  top: -50px;
+  left: calc(50% - 50px);
+}
+
+.home-container {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+}
+
+.profpic {
+  width: 200px;
+  height: auto;
+}
+
+.add-icon {
+  width: 50px;
+  height: auto;
+}
+
+.profilepic {
+  position: relative;
+  margin: 0 auto;
+}
+.right-col {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 80%;
+  z-index: -1;
+}
+
+.addsymbol {
+  padding-top: 20px;
+  padding-left: 75%;
+  width: 80%;
+}
+
+.about-home {
+  padding-left: 5%;
+  padding-top: 50px;
+}
+
+.text-center {
+  text-align: center;
+}
