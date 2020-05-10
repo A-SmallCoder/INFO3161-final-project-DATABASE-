@@ -1,2 +1,6 @@
 # INFO3161-final-project-DATABASE-
-Database section of back end for INFO3161 Final Project
+
+Administration runs on a server of its own hence the separation in the folder
+no login used for the administration
+
+

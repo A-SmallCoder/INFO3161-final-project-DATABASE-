@@ -1,0 +1,25 @@
+body {
+    padding-top: 5rem;
+}
+.grid{
+    width: 100%;
+}
+.list{
+    list-style: none;
+    display: inline-block;
+    width: calc(100% / 3);
+    text-align: center;
+    padding: 7px 0px;
+}
+.list img{
+    width:350px; 
+    height: auto;
+}
+.unordered-list{
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-left: 0;
+}
