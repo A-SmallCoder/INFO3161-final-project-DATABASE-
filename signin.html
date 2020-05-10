@@ -1,7 +1,7 @@
 <html>
   <head>
     <title>
-      Sign In Form Design
+      Sign Up
     </title>
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
@@ -9,18 +9,20 @@
     <div class="loginbox signinbox">
       <img src="avatar.png" class="avatar" />
       <h1>Sign In Here</h1>
-      <form>
+      <form action = 'register.php' method = 'POST'>
         <p>First Name</p>
-        <input type="text" name="" placeholder="Enter your First Name" />
+        <input type="text" name="firstname" placeholder="Enter your First Name" />
         <p>Last Name</p>
-        <input type="text" name="" placeholder="Enter your Last Name" />
+        <input type="text" name="lastname" placeholder="Enter your Last Name" />
         <p>Date of Birth</p>
-        <input type="date" name="" />
+        <input type="date" name="dob" />
+        <p>Email</p>
+        <input type = "text" name = "email" placeholder="Enter your email address"/>
         <p>Username</p>
-        <input type="text" name="" placeholder="Enter your username" />
+        <input type="text" name="username" placeholder="Enter your username" />
         <p>Password</p>
-        <input type="password" name="" placeholder="Enter your password" />
-        <input type="submit" name="" value="Signin" />
+        <input type="password" name="password" placeholder="Enter your password" />
+        <input type="submit" name="" value="Sign Up" />
       </form>
     </div>
   </body>
