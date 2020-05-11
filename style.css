@@ -12,6 +12,34 @@ ul {
   list-style-type: none;
 }
 
+.navbar-light {
+  background-color: black;
+}
+.myprofile {
+  padding: 26px 0px;
+}
+
+.about-color {
+  color: red;
+}
+
+.kj {
+  padding-top: 12px;
+}
+
+.h {
+  width: 100%;
+}
+
+.o {
+  padding-top: 30px;
+}
+.back-color-white {
+  background-color: white;
+}
+.profile-name {
+  color: blue;
+}
 .float-left {
   float: left;
 }
