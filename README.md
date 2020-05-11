@@ -7,12 +7,13 @@ GETTING STARTED - SET-UP STEPS:
 4)run populateTables.sql
 5)DONE
 
-#using user side app
+USING USER-SIDE APP
 #start php server from project directory
 php -S localhost:8000
 #copy and paste in browser
 localhost:8000
 
+ADMISITRATION-SIDE APP
 #Administration app runs on a server of its own hence the separation in the folder (no login used for the administration)
 #start php server from administration folder:
 php -S localhost:9000
