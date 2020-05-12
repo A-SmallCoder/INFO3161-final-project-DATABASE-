@@ -93,18 +93,27 @@
             echo "<button class='btn btn-outline-success my-2 my-sm-0' type='submit' >Add</button>";
 
 
+          echo "</form>";
 
-            if(isset($_POST['uid7'], $_POST['typelist'])){
-              $var7 = $_POST['uid7']; $var8 = $_POST['typelist'];
+            if(isset($_POST['typelist'])){
+              $var8 = $_POST['typelist'];
+
+              //select id of the username searched for
+              $sql7 = "SELECT id FROM user WHERE username = '$var'";
+              $result7 = mysqli_query($conn,$sql7) or die(mysqli_error($conn));
+              $row7 = mysqli_fetch_assoc($result7);
+              $var7 = $row7['id'];
+              echo $var7;
+
               
               //sql to add friend by updating friend table
               $sql8 = "INSERT INTO friend VALUES($myid,$var7,$var8)";
               $result8 = mysqli_query($conn,$sql8) or die(mysqli_error($conn));
-              $row8 = mysqli_fetch_assoc($result8);
-              $id8 = $row8['id'];
-              echo $id8;
+              if($result8){
+                echo "yes";
+              }echo "no";
             }
-          echo "</form>";
+          
           
           
         echo "</div>";
@@ -136,41 +145,43 @@
       $row2 = mysqli_fetch_assoc($result2);
       $friendid = $row2['friend_id'];
       
+      //friend table needs to be normalized and data fetched from that
+      //while($rows = mysqli_fetch_array($row2)){
+        //select image from profile
 
-      //select image from profile
+        echo "<div>";
+          //sql statemet to select name
+          echo "<div class = ''>";
+          $sql3 = "SELECT Fname, lname FROM user WHERE id = $friendid";
+          $result3 = mysqli_query($conn,$sql3) or die(mysqli_error($conn));
+          $result4 = mysqli_query($conn,$sql3) or die(mysqli_error($conn));
+          $row3 = mysqli_fetch_assoc($result3);
+          $row4 = mysqli_fetch_assoc($result4);
+          $first = $row3['Fname'];
+          $last = $row4['lname'];
+          $name = $first. " " . $last;
+          echo $name;
+          echo "</div>";
 
-      echo "<div>";
-        //sql statemet to select name
-        echo "<div class = ''>";
-        $sql3 = "SELECT Fname, lname FROM user WHERE id = $friendid";
-        $result3 = mysqli_query($conn,$sql3) or die(mysqli_error($conn));
-        $result4 = mysqli_query($conn,$sql3) or die(mysqli_error($conn));
-        $row3 = mysqli_fetch_assoc($result3);
-        $row4 = mysqli_fetch_assoc($result4);
-        $first = $row3['Fname'];
-        $last = $row4['lname'];
-        $name = $first. " " . $last;
-        echo $name;
+          //sqls statement to select username
+          echo "<div class = ''>";
+          $sql5 = "SELECT username FROM user WHERE id = $friendid";
+          $result5 = mysqli_query($conn,$sql5) or die(mysqli_error($conn));
+          $row5 = mysqli_fetch_assoc($result5);
+          $username = $row5['username'];
+          echo $username;
+          echo "</div>";
         echo "</div>";
 
-        //sqls statement to select username
-        echo "<div class = ''>";
-        $sql5 = "SELECT username FROM user WHERE id = $friendid";
-        $result5 = mysqli_query($conn,$sql5) or die(mysqli_error($conn));
-        $row5 = mysqli_fetch_assoc($result5);
-        $username = $row5['username'];
-        echo $username;
+        //sql to select friend type
+        echo "<div>";
+        $sql6 = "SELECT friend_type FROM friend WHERE  friend_id = $friendid";
+        $result6 = mysqli_query($conn,$sql6) or die(mysqli_error($conn));
+        $row6 = mysqli_fetch_assoc($result6);
+        $type = $row6['friend_type'];
+        echo $type;
         echo "</div>";
-      echo "</div>";
-
-      //sql to select friend type
-      echo "<div>";
-      $sql6 = "SELECT friend_type FROM friend WHERE  friend_id = $friendid";
-      $result6 = mysqli_query($conn,$sql6) or die(mysqli_error($conn));
-      $row6 = mysqli_fetch_assoc($result6);
-      $type = $row6['friend_type'];
-      echo $type;
-      echo "</div>";
+      //}
         
     echo "</div>";
 
