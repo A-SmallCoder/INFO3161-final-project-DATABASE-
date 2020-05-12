@@ -1,3 +1,4 @@
+<?php session_start();?>
 <html>
   <head>
     <title>
@@ -38,13 +39,18 @@ if(isset($_POST['username'])){
     $users = "SELECT * FROM $table WHERE username = '$uname' and password = '$pword' limit 1";
     $result = mysqli_query($conn,$users);
 
+
     $count = mysqli_num_rows($result);
     if ($count ==  1){
-        header('Location: http://' . $_SERVER['HTTP_HOST'] . '/home.html');
-        exit(); 
+
+      //set user_id as session variable
+      $_SESSION['user'] = $uname;
+
+      header('Location: http://' . $_SERVER['HTTP_HOST'] . '/Profile.php');
+      exit(); 
     }else{
         echo "wrong username or password";
-        header('Location: http://' . $_SERVER['HTTP_HOST'] . '/login.php');
+        header('Location: http://' . $_SERVER['HTTP_HOST'] . '/index.php');
         exit();
     }
 
