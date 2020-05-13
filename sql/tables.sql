@@ -61,7 +61,7 @@ foreign key (post_id) references posts(post_id) on update cascade on delete casc
 
 create table post_image(post_id int, photo_id int,primary key(post_id,photo_id), foreign key (photo_id) references Images(Photo_id) on update cascade on delete cascade, foreign key (post_id) references posts(post_id) on update cascade on delete cascade);
 
-create table make_group(group_id int,user_id int, creation_date date, primary key(group_id,user_id),
+create table make_group(group_id int not null,user_id int not null, creation_date date, primary key(group_id,user_id),
 foreign key(group_id) references `group`(group_id) on update cascade on delete cascade,
 foreign key(user_id) references user(user_id) on update cascade on delete cascade);
 
