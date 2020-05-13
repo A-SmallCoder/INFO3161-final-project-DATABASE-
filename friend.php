@@ -3,6 +3,10 @@
 <html>
   <head>
     <title> Friends </title>
+    <script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
     <link href="static/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel ="stylesheet" type="text/css" href="userExperienceStyles.css"/>
@@ -40,27 +44,45 @@
           name = 'searchfeild'
           class="form-control mr-sm-2"
           type="search"
-          placeholder="Search for friend here"
+          placeholder="Search by username"
         />
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
           Search
         </button>
         
-      </form>
+        
+      
+    </form>
+    <form action='#' method='POST'>
+        <button button class='btn btn-outline-success my-2 my-sm-0' type='submit' value='0' name='zero'>
+              add
+            </button>
+    </form>
     </div>
   </body>
 </html>
 
 <?php
   require_once 'connect.php';
-
+  echo "<div class='container'>";
+  $username = $_SESSION['user'];
+   $selectedvalue;
+  global $userfriend;
+  global $sql02;
+  global $sql03;
+  global  $sql28;
+  global  $result56;
+  global  $result57;
+  global $result58;
+  
   if(isset($_POST['searchfeild'])){
     $var = $_POST['searchfeild'];
+    $userfriend= $var;
 
-
+  
     $sql0 = "SELECT * FROM user WHERE username = '$var' ";
     $result0 = mysqli_query($conn,$sql0) or die(mysqli_error($conn));
-
+    echo"<div class='container' style='padding-top: 52px;'>";
 
     while($unknown = mysqli_fetch_array($result0)){
       if ($unknown['username'] == $var){
@@ -80,63 +102,90 @@
           echo "</div>";
 
           //add button inside friend div
-          echo "<form action = '#' method = 'post'>";
+
+
+
+          // select a.id, friendid from (select a.id, b.id as friendid from user A left join user B on a.id = b.id) where a.id=10 and friendid=1 ;
             
             //dropdown list for friend_type
-            echo "<select name = 'typelist'>";
-              echo "<option value = 'work'>Work</option>";
-              echo "<option value = 'relative'>Relative</option>";
-              echo "<option value = 'group'>Group</option>";
-            echo "</select>";
+          
 
             //button to add friend
-            echo "<button class='btn btn-outline-success my-2 my-sm-0' type='submit' >Add</button>";
-
-
-          echo "</form>";
-
-            if(isset($_POST['typelist'])){
-              $var8 = $_POST['typelist'];
-
-              //select id of the username searched for
-              $sql7 = "SELECT id FROM user WHERE username = '$var'";
-              $result7 = mysqli_query($conn,$sql7) or die(mysqli_error($conn));
-              $row7 = mysqli_fetch_assoc($result7);
-              $var7 = $row7['id'];
-              echo $var7;
-
-              
-              //sql to add friend by updating friend table
-              $sql8 = "INSERT INTO friend VALUES($myid,$var7,$var8)";
-              $result8 = mysqli_query($conn,$sql8) or die(mysqli_error($conn));
-              if($result8){
-                echo "yes";
-              }echo "no";
-            }
+            echo "<form action='#' method='POST'>";
+            echo "<select name = 'typelist'>";
+              echo "<option value = 'work'>Work</option>";
+              echo "<option value = 'Relative'>Relative</option>";
+              echo "<option value = 'Group'>Group</option>";
+            echo "</select>";
+            echo "<input type='submit' value='Get Group' name='unknown' />";
+            echo "</form>";
           
-          
-          
-        echo "</div>";
+  
+         
       }else{
         echo "failed if statement";
       }
+
+      
+      
     }
+  
   }
+  
+  
+    if (isset($_POST["zero"])){
+      if(isset($_POST['unknown']) ){
+
+        global $selectedvalue;
+        $selectedvalue = $_POST['typelist'];  // Storing Selected Value In Variable
+          // Displaying Selected Value
+      }
+      echo "button clicked";
+      $sql78= "SELECT id from user where username='$username'";
+      $result85 = mysqli_query($conn,$sql78) or die(mysqli_error($conn));
+      $row90 = mysqli_fetch_assoc($result85);
+      $myid4 = $row90['id'];
+
+      $sql89= "SELECT id from user where username= '$userfriend'";
+      $result67 = mysqli_query($conn,$sql89) or die(mysqli_error($conn));
+      $row67 = mysqli_fetch_assoc($result67);
+      $myid67 = $row67['id'];
 
 
-  echo "<div class = 'spacer'> </div>";
-  echo "<div class = 'phpcontainer'>";
+      $sql28= "INSERT INTO friend values ($myid4, $myid67 )";
+      $result58 = mysqli_query($conn,$sql28) or die(mysqli_error($conn));
+      
+    }
+  
+
+   
+      
+ 
+    
+
+  
+  
+
+    
+    
+
+  
+  
+
+
+  echo "<div class = 'phpcontainer container'>";
 
   echo "<h5>Friends</h5>";
 
     echo "<div class = frame>";
-      $username = $_SESSION['user'];
       
+    $username = $_SESSION['user'];
       //sql statement to select username
       $sql = "SELECT id FROM user WHERE username = '$username'";
       $result1 = mysqli_query($conn,$sql) or die(mysqli_error($conn));
       $row = mysqli_fetch_assoc($result1);
       $myid = $row['id'];
+      
       
 
       //sql statement to select friend_id
@@ -183,8 +232,11 @@
         echo "</div>";
       //}
         
-    echo "</div>";
+    echo "</div>";  
 
+
+    echo "</div>";
+  echo "</div>";
   echo "</div>";
 
 ?>
