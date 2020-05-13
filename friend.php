@@ -17,19 +17,15 @@
       <nav class="navbar navbar-expand-lg navbar-light" style="background-color: black;">
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active"><a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
+            <li class="nav-item active"><a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="profile.php">Profile</a></li>
             <li class="nav-item dropdown">
                 <div class="dropdown">
                     <button class="dropbtn">Settings<i class="fa fa-caret-down"></i></button>
-                    <div class="dropdown-content"><a href="#">Add Friends</a><a href="#">Create Group</a></div>
+                    <div class="dropdown-content"><a href="friend.php">Add Friends</a><a href="#">Create Group</a></div>
                 </div>
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search"/>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
         </div>
       </nav>
     </header>
