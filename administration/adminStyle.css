@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(238, 238, 238, 0.884);
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+  }
+
+.header{
+    background-color: cadetblue;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}  
+.header h1{
+    border: solid white 2px;
+    padding:10px;
+}
+
+.content{
+    background-color: bisque;
+    margin:20px;
+    border: solid black 1px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.user{
+    background-color: rgb(248, 178, 248);
+    margin:1px;
+    padding: 8px;
+    display: flex;
+    justify-content: space-around;
+    border: solid purple 1px;
+    border-radius: 10px;
+}
+
+.user input[type ='text']{
+    width:0px;
+    height:0px;
+    background-color: rgb(248, 178, 248);
+    border: solid rgb(248, 178, 248) 0px;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.container .content{
+    width:30%;
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: auto;
+    text-align: center;
+}
+
+.container .content div{
+    width: 97%;
+    text-align: left;
+}
+
+img{
+    width:10%;
+    height:auto;
+}
+.friend{
+    background-color: rgb(248, 178, 248);
+    margin:1px;
+    padding: 8px;
+    border: solid purple 1px;
+    border-radius: 5px;
+}
+
+.post{
+    background-color: rgb(193, 178, 248);
+    margin:1px;
+    padding: 8px;
+    border: solid rgb(66, 0, 128) 1px;
+    border-radius: 5px;
+}
+
+.comment{
+    background-color: rgb(178, 248, 193);
+    margin:1px;
+    padding: 8px;
+    border: solid rgb(0, 128, 32) 1px;
+    border-radius: 5px;
+}
+.comment .cp{
+    background-color: rgb(53, 167, 187);
+    padding-top: 8px;
+    text-align: left;
+    border: solid rgb(0, 35, 36) 1px;
+    border-radius: 3px;
+}
+
+.del{
+    text-align: right;
+    margin: 10px;
+}

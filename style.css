@@ -1,0 +1,479 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f8f9fa;
+  background-size: cover;
+  background-position: center;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.navbar-light {
+  background-color: black;
+}
+.myprofile {
+  padding: 26px 0px;
+}
+
+.about-color {
+  color: red;
+}
+
+.kj {
+  padding-top: 12px;
+}
+
+.h {
+  width: 100%;
+}
+
+.o {
+  padding-top: 30px;
+}
+.back-color-white {
+  background-color: white;
+}
+.profile-name {
+  color: blue;
+}
+.float-left {
+  float: left;
+}
+
+.block {
+  display: block;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.white-clr {
+  color: white;
+}
+
+.post-btn-div-2 {
+  padding: 12px 12px 10px;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.btn-post-1 {
+  box-sizing: border-box;
+  height: 28px;
+  width: 100%;
+  font-size: 12px;
+  cursor: default;
+}
+.post-btn-div {
+  border-top: 1px solid #dddfe2;
+  border-radius: 0 0 3px 3px;
+  background-color: #f5f6f7;
+}
+.crd-post {
+  padding: 15px;
+  margin: 15px;
+  border: none !important;
+}
+.photo {
+  border-radius: 0 0 3px 3px;
+  border-top: 1px solid #dddfe2;
+  padding: 10px 0px;
+  padding-left: 10px;
+}
+
+.img-container {
+  margin-top: 44px;
+}
+
+.crd-txt-5 {
+  padding-top: 5px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.crd-txt-10 {
+  padding-top: 10px;
+}
+
+.post-txt-ind {
+  overflow: hidden;
+  position: relative;
+  padding-left: 30px;
+}
+.post-text {
+  overflow: hidden;
+  position: relative;
+  padding-left: 50px;
+}
+
+.post-text-2 {
+  color: #90949c;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.post-text-1 {
+  padding-top: 18px;
+  min-height: 71px;
+  line-height: 28px;
+  padding-right: 48px;
+}
+
+.span-1 {
+  position: relative;
+  padding: 0 10px;
+}
+
+.span-2 {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 14px;
+}
+.posts-section {
+  margin-top: 25px;
+}
+.card-container {
+  background-color: white;
+  margin-top: 47px;
+  margin-right: 313px;
+}
+
+.card-header {
+  padding: 8px 0 !important;
+  padding-right: 24px !important;
+}
+
+.xsmall-img {
+  width: 32px;
+  height: 32px;
+}
+.left-side {
+  order: 2;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  font-size: 0.875rem;
+  position: sticky;
+  top: 4rem;
+  display: block !important;
+}
+
+.right-ul {
+  padding-left: 0;
+  border-left: 1px solid #eee;
+  margin-top: 0;
+  max-width: 205px !important;
+  float: right;
+  margin-bottom: 1rem;
+  position: sticky;
+}
+
+.right-row {
+  flex-wrap: nowrap !important;
+}
+
+.right-side {
+  padding-top: 50px;
+  background-color: white;
+}
+
+.right-fullname {
+  color: #3737fb;
+  font-family: "Segoe UI", "Montserrat", sans-serif;
+}
+
+.navbar a:hover,
+.dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.small-img-container {
+  border-radius: 50%;
+  overflow: hidden;
+  float: left;
+  position: relative;
+}
+.small-img {
+  width: 50px;
+  height: 50px;
+}
+
+.post-list {
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  word-wrap: break-word;
+  margin-right: 313px;
+  margin-top: 47px;
+  background-color: white;
+  flex-direction: column;
+  -webkit-box-orient: vertical;
+  display: flex;
+  position: relative;
+}
+.navbar-nav .nav-item a {
+  color: white !important;
+}
+.loginbox h1 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 22px;
+}
+
+.groupname_home {
+  flex: 1 0 0px;
+  overflow: hidden;
+}
+
+.group-individual {
+  color: #333;
+  display: block;
+  height: 32px;
+  line-height: 32px;
+  padding: 4px 0;
+  position: relative;
+  margin-bottom: 12px;
+}
+._254fnoe {
+  border-radius: 50%;
+  overflow: hidden;
+  float: left;
+  height: 32px;
+  position: relative;
+  width: 32px;
+}
+
+.groups-title {
+  padding: 8px 0 8px 8px;
+}
+.right-nav {
+  width: 217px;
+  background-color: white;
+  padding-bottom: 30px;
+}
+.grp {
+  padding-left: 8px;
+  position: relative;
+}
+
+.grp_name_home {
+  overflow: hidden;
+  padding-left: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 32px;
+}
+
+.grp_home {
+  color: #333;
+  height: 32px;
+  line-height: 32px;
+  padding: 4px 0;
+  position: relative;
+}
+._8dnje {
+  float: none;
+  word-wrap: break-word;
+}
+
+._i3e {
+  display: flex;
+}
+.signinbox {
+  margin-top: 2%;
+  width: 620px !important;
+  height: 600px !important;
+}
+
+.loginbox {
+  width: 420px;
+  height: auto;
+  background: #000;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 70px 30px;
+}
+
+.loginbox p {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+.loginbox input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"] {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+}
+input[type="search"] {
+  border: none;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #707070;
+  font-size: 16px;
+  padding-bottom: 2px;
+}
+
+.loginbox input[type="submit"] {
+  border: none;
+  outline: none;
+  height: 40px;
+  background: #fb2525;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+.loginbox input[type="submit"]:hover {
+  cursor: pointer;
+  background: #ffc107;
+  color: #000;
+}
+
+.loginbox a {
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 20px;
+  color: darkgrey;
+}
+
+.loginbox a:hover {
+  color: #ffc107;
+}
+
+.avatar {
+  width: 100px;
+  height: auto;
+  position: absolute;
+  top: -50px;
+  left: calc(50% - 50px);
+}
+
+.avatarx {
+  width: 130px;
+  height: auto;
+}
+
+.home-container {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+}
+
+.profpic {
+  width: 200px;
+  height: auto;
+}
+
+.add-icon {
+  width: 50px;
+  height: auto;
+}
+
+.profilepic {
+  position: relative;
+  margin: 0 auto;
+}
+.right-col {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 80%;
+  z-index: -1;
+}
+
+.addsymbol {
+  padding-top: 20px;
+  padding-left: 75%;
+  width: 80%;
+}
+
+.about-home {
+  padding-left: 5%;
+  padding-top: 50px;
+}
+
+.text-center {
+  text-align: center;
+}
