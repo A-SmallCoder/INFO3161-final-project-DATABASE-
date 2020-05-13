@@ -21,7 +21,7 @@ end
 $$
 
 Delimiter $$
-Create Procedure add_editor(userID,groupID)
+Create Procedure add_editor(userID int,groupID int)
 begin
 update member_of
 set editor = true
@@ -30,7 +30,7 @@ end
 $$
 
 Delimiter $$
-Create Procedure remove_editor(userID,groupID)
+Create Procedure remove_editor(userID int,groupID int)
 begin
 update member_of
 set editor = false
@@ -48,9 +48,16 @@ end
 $$
 
 Delimiter $$
-Create Procedure Create_group(userID int, groupID int, groupName varchar(50))
+create procedure update_make_posts(userID int, postID int)
 begin
-insert into `group`()
+insert into make_posts(user_id, post_id,post_date) values(userID,postID,current_timestamp );
+end
+$$
+
+-- Delimiter $$
+-- Create Procedure Create_group(userID int, groupID int, groupName varchar(50))
+-- begin
+-- insert into `group`()
 -- insert into user(Fname,lname,email,password,street,city,country,DOB)
 --     -> values('Derwent','Johnson','derwent@gmail.com','password','10 sunny ave','Kingston','Jamaica',
 --     -> 1996-01-06),('Kim','Taylor','kimmyt@gmail.com','1234password','21 midnight rd','Kingston','Jamaica',1999-01-02);
