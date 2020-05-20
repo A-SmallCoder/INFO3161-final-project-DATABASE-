@@ -1,9 +1,11 @@
+<?php session_start()
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Application Vue Js PHP anD mysqli</title>
+    <title>Friends</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -20,24 +22,48 @@
         background: rgba(0, 0, 0, 0.6);
       }
     </style>
+    <script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous"></script>
+      <link href="static/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+      <link rel ="stylesheet" type="text/css" href="userExperienceStyles.css"/>
   </head>
   <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: black;">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active"><a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="profile.php">Profile</a></li>
+            <li class="nav-item"><a class="nav-link" href="group.php">Group</a></li>
+            <li class="nav-item dropdown">
+                <div class="dropdown">
+                    <button class="dropbtn">Settings<i class="fa fa-caret-down"></i></button>
+                    <div class="dropdown-content"><a href="friend.php">Add Friends</a><a href="#">Create Group</a></div>
+                </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
     <div id="app">
       <div class="container-fluid">
         <div class="row bg-dark">
           <div class="col-lg-12 text-center text-light display-4 pt-2">
-            <p>Application Vue Js PHP anD mysqli</p>
+            <p></p>
           </div>
         </div>
       </div>
       <div class="container">
         <div class="row mt-3">
           <div class="col-lg-6">
-            <h3 class="text-info">Registered Users</h3>
+            <h3 class="text-info">Friends</h3>
           </div>
           <div class="col-lg-6">
             <button class="btn btn-info float-right" @click="showAddModal=true">
-              Add new user
+              Add new friend
             </button>
           </div>
         </div>
@@ -54,37 +80,18 @@
               <thead>
                 <tr class="text-center bg-info text-light">
                   <th>ID</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Phone</th>
-                  <th>Edit</th>
-                  <th>Delete</th>
+                  <th>Username</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  
                 </tr>
               </thead>
               <tbody>
-                <tr class="text-center">
-                  <td>1</td>
-                  <td>Wolfmania</td>
-                  <td>wolfmania@gmail.com</td>
-                  <td>2404203i1</td>
-                  <td><a href="#" class="text-success">Edit</a></td>
-                  <td><a href="#" class="text-success">Delete</a></td>
-                </tr>
-                <tr class="text-center">
-                  <td>1</td>
-                  <td>Wolfmania</td>
-                  <td>wolfmania@gmail.com</td>
-                  <td>2404203i1</td>
-                  <td><a href="#" class="text-success">Edit</a></td>
-                  <td><a href="#" class="text-success">Delete</a></td>
-                </tr>
-                <tr class="text-center">
-                  <td>1</td>
-                  <td>Wolfmania</td>
-                  <td>wolfmania@gmail.com</td>
-                  <td>2404203i1</td>
-                  <td><a href="#" class="text-success">Edit</a></td>
-                  <td><a href="#" class="text-success">Delete</a></td>
+                <tr class="text-center" v-for="friend in friends">
+                  <td>{{friend.id}}</td>
+                  <td>{{friend.username}}</td>
+                  <td>{{friend.Fname}}</td>
+                  <td>{{friend.lname}}</td>
                 </tr>
               </tbody>
             </table>
@@ -98,7 +105,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="model-title">
-                Add New User
+                Add New Friend
               </h5>
               <button type="button" class="close" @click="showAddModal=false">
                 <span aria-hidden="true">&times;</span>
@@ -109,33 +116,20 @@
                 <div class="form-group">
                   <input
                     type="text"
-                    name="name"
-                    placeholder="Name"
+                    name="friendid"
+                    placeholder="friendid"
                     class="form-control form-control-lg"
+                    v-model="newFriend.friendid"
                   />
                 </div>
-                <div class="form-group">
-                  <input
-                    type="text"
-                    name="email"
-                    placeholder="Email"
-                    class="form-control form-control-lg"
-                  />
-                </div>
-                <div class="form-group">
-                  <input
-                    type="text"
-                    name="phone"
-                    placeholder="Phone"
-                    class="form-control form-control-lg"
-                  />
+                
                 </div>
                 <div class="form-group">
                   <button
                     class="btn btn-info btn-block btn-lg"
-                    @click="showAddModal=false"
+                    @click="showAddModal=false; addFriend()"
                   >
-                    Add user
+                    Add 
                   </button>
                 </div>
               </form>
@@ -154,6 +148,7 @@
           successMsg: "",
           showAddModal: false,
           friends: [],
+          newFriend: { friendid: "" },
         },
 
         mounted: function () {
@@ -165,7 +160,7 @@
           // method for getting all users from db and displaying them into the main page
           getAllFriends() {
             axios
-              .get("..?action=read")
+              .get("http://localhost:8000/kimfriends.php?action=read")
               .then(function (response) {
                 if (response.data.error) {
                   //check for any error
@@ -175,8 +170,33 @@
                 }
               });
           },
+          addFriend() {
+            var formData = app.toFormData(app.newFriend);
+            axios
+              .post(
+                "http://localhost:8000/kimfriends.php?action=create",
+                formData
+              )
+              .then(function (response) {
+                app.newFriend = { friendid: "" };
+                if (response.data.error) {
+                  //check for any error
+                  app.errorMsg = response.data.message; //assign error message
+                } else {
+                  app.successMsg = response.data.message;
+                  app.getAllFriends();
+                }
+              });
+          },
+          toFormData(obj) {
+            //get data and append all values in obj variable , by using obj we are assign all values in fd variable ...using this method in addUser Method
+            var fd = new FormData();
+            for (var i in obj) {
+              fd.append(i, obj[i]);
+            }
+            return fd;
+          },
         },
-      });
       });
     </script>
   </body>

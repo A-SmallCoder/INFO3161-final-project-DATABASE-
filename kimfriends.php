@@ -1,7 +1,7 @@
 <?php
 
     session_start();
-    
+    $uname = $_SESSION['user'];
 
     include 'connect.php';
 
@@ -15,8 +15,8 @@
 
     #select all records from database
     if($action == 'read'){
-        $sql = $conn->query("select * from user where id in (SELECT friend_id FROM friend where user_id in (select id from user where username='8^UIR0(i&c'))");
-
+        $sql = $conn->query("SELECT * from user WHERE id IN (SELECT friend_id FROM friend WHERE user_id IN (SELECT id FROM user WHERE username ='".$uname."'))");
+    
         #CREATE EMPTY USER VARIABLE WITH ARRAY TYPE
         $users = array();
 
@@ -29,7 +29,14 @@
     #insert new record into database
     if($action == 'create'){
         $friendid=$_POST['friendid'];
-        $sql = $conn->query("INSERT INTO friend (user_id,friend_id) VALUES (4,'$friendid')");
+        
+        $userid = $conn->query("SELECT id from user where username='".$uname."'");
+        // $result1 = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+        $row = mysqli_fetch_assoc($userid);
+        $myid = $row['id'];
+
+        $sql = $conn->query("INSERT INTO friend (user_id, friend_id) VALUES ($myid, '$friendid')");
+       # VALUES (1,'$friendid')");
 
         if($sql){
             $result['message']="User added successfully";
