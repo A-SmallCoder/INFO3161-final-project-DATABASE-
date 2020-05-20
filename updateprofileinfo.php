@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Friends</title>
+    <title>Groups</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -35,6 +35,7 @@
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active"><a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a></li>
             <li class="nav-item"><a class="nav-link" href="profile.php">Profile</a></li>
+            <li class="nav-item"><a class="nav-link" href="group.php">Group</a></li>
             <li class="nav-item dropdown">
                 <div class="dropdown">
                     <button class="dropbtn">Settings<i class="fa fa-caret-down"></i></button>
@@ -56,11 +57,11 @@
       <div class="container">
         <div class="row mt-3">
           <div class="col-lg-6">
-            <h3 class="text-info">Friends</h3>
+            <h3 class="text-info">Profiles</h3>
           </div>
           <div class="col-lg-6">
-            <button class="btn btn-info float-right" @click="showAddModal=true">
-              Add new friend
+            <button class="btn btn-info float-right" @click="showEditModal=true; selectUser(user);">
+              Edit
             </button>
           </div>
         </div>
@@ -76,19 +77,16 @@
             <table class="table table-bordered table-striped">
               <thead>
                 <tr class="text-center bg-info text-light">
-                  <th>ID</th>
                   <th>Username</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
+                  <th>Bio</th>
                   
                 </tr>
               </thead>
               <tbody>
-                <tr class="text-center" v-for="friend in friends">
-                  <td>{{friend.id}}</td>
-                  <td>{{friend.username}}</td>
-                  <td>{{friend.Fname}}</td>
-                  <td>{{friend.lname}}</td>
+                <tr class="text-center" v-for="group in profiles">
+                  <td>{{group.username}}</td>
+                  <td>{{group.Bio}}</td>
+
                 </tr>
               </tbody>
             </table>
@@ -97,14 +95,14 @@
       </div>
 
       <!-- Add new User Model -->
-      <div id="overlay" v-if="showAddModal">
+      <div id="overlay" v-if="showEditModal">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="model-title">
-                Add New Friend
+                Edit Profile
               </h5>
-              <button type="button" class="close" @click="showAddModal=false">
+              <button type="button" class="close" @click="showEditModal=false">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -113,10 +111,18 @@
                 <div class="form-group">
                   <input
                     type="text"
-                    name="friendid"
-                    placeholder="friendid"
+                    name="groupid"
                     class="form-control form-control-lg"
-                    v-model="newFriend.friendid"
+                    v-model="currentUser.Bio"
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    name="groupid"
+                    placeholder="Enter Profile bio"
+                    class="form-control form-control-lg"
+                    v-model="currentUser.username"
                   />
                 </div>
                 
@@ -124,9 +130,9 @@
                 <div class="form-group">
                   <button
                     class="btn btn-info btn-block btn-lg"
-                    @click="showAddModal=false; addFriend()"
+                    @click="showEditModal=false; editProfile()"
                   >
-                    Add 
+                    Update
                   </button>
                 </div>
               </form>
@@ -143,45 +149,46 @@
         data: {
           errorMsg: "",
           successMsg: "",
-          showAddModal: false,
-          friends: [],
-          newFriend: { friendid: "" },
+          showEditModal: false,
+          profiles: [],
+          newFriend: { username: "", Bio:"" }
+          currentUser: {},
         },
 
         mounted: function () {
           //when this instance is created then all the methods called in this mounted function will execute automatically
-          this.getAllFriends();
+          this.getAll();
         },
 
         methods: {
           // method for getting all users from db and displaying them into the main page
-          getAllFriends() {
+          getAll() {
             axios
-              .get("http://localhost:8000/kimfriends.php?action=read")
+              .get("http://localhost:8000/updateprofile.php?action=read")
               .then(function (response) {
                 if (response.data.error) {
                   //check for any error
                   app.errorMsg = response.data.message; //assign error message
                 } else {
-                  app.friends = response.data.users;
+                  app.profiles = response.data.profile;
                 }
               });
           },
-          addFriend() {
-            var formData = app.toFormData(app.newFriend);
+          editProfile() {
+            var formData = app.toFormData(app.newGroup);
             axios
               .post(
-                "http://localhost:8000/kimfriends.php?action=create",
+                "http://localhost:8000/updateprofile.php?action=update",
                 formData
               )
               .then(function (response) {
-                app.newFriend = { friendid: "" };
+                app.newGroup = { groupname: ""};
                 if (response.data.error) {
                   //check for any error
                   app.errorMsg = response.data.message; //assign error message
                 } else {
                   app.successMsg = response.data.message;
-                  app.getAllFriends();
+                  app.getAllGroups();
                 }
               });
           },
@@ -193,8 +200,11 @@
             }
             return fd;
           },
+          selectUser(user){
+              app.currentUser = user;
+          }
         },
       });
     </script>
-  </body>
+    </body>
 </html>
