@@ -1,0 +1,63 @@
+body{
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+}
+.spacer{
+    height:100px;
+}
+.phpcontainer{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+.frame{
+    background-color: white;
+    border-radius: 3px;
+    border: solid rgb(122, 122, 122) 1px;
+    margin: 30px;
+    width: 75%;
+    height: 45%;
+}
+
+.invisible{
+    width:0px;
+    height:0px;
+    background-color: rgb(255, 255, 255);
+    border: solid rgb(255, 255, 255) 0px;
+}
+
+.mycontainer{
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
+}
+.profiletop{
+    background-color: white;
+    border-radius: 3px;
+    border: solid rgb(168, 168, 168) 1px;
+    margin: 10px;
+    width: 1000px;
+    height:450px;
+    display: flex;
+    flex-direction: row;
+    padding: 40px;
+}
+
+.profilepic{
+  object-fit:cover;
+}
+
+.postdiv{
+    background-color: white;
+    border-radius: 3px;
+    border: solid rgb(122, 122, 122) 1px;
+    margin: 30px;
+    width: 700px;
+    height: 150px;
+}
+
+.postwords{
+    padding:10px;
+}

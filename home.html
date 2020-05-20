@@ -12,6 +12,7 @@
   </head>
   <body>
     <header>
+      
       <nav class="navbar navbar-expand-lg navbar-light " style=" background-color: black;">
       
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
@@ -22,9 +23,18 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Profile</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link " href="#" tabindex="-1" aria-disabled="true"></a>
+            <li class="nav-item dropdown">
+              <div class="dropdown">
+                <button class="dropbtn">Settings
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="#">Add Friends</a>
+                  <a href="#">Create Group</a>
+                </div>
+              </div> 
             </li>
+            
           </ul>
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search">
@@ -34,62 +44,68 @@
       </nav>
     </header>
 
-    <section class="right-side">
+    <section class="right-section">
     <div class="container-fluid">
-      <div class="row" style="flex-wrap: nowrap !important;">
-        <div class="col-md-3 col-xl-2 bd-sidebar text-center" style="padding-top: 50px; background-color: white;">
-            <h2
-              
-              style="
-                color: #3737fb;
-                font-family: 'Segoe UI', 'Montserrat', sans-serif;
-              "
-            >
-              <strong>John Brown</strong>
-            </h2>
+      <div class="row right-row">
+        <div class="col-md-3 col-xl-2 bd-sidebar text-center right-side">
+            <h2 class="right-fullname"><strong>John Brown</strong></h2>
             <div>
               <img src="avatar.png" class=" avatarx" alt="avatar" />
             </div>
-            <p >
-              @johnbrown
-            </p>
+            <p>@johnbrown</p>
             <br />
 
-            <button
-              type="button"
-              class="btn btn-primary"
-              data-toggle="button"
-              aria-pressed="false"
-            >
+            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false">
               Edit Profile
             </button>
-
             <hr />
-            <p>Settings</p>
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Profile</a></li>
-              <li>Create Group</li>
-            </ul>
+            <a href="#">FRIENDS</a>
+                <ul>
+                  <li>
+                    <div>
+                      <div>
+                        <a>
+                          <div class="_254fnoe">
+                            <div class="xsmall-img" >
+                              <img src="background.jpg" width="32" height="32" class="block" >
+                              
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="groupname_home _8dnje">
+                      <a href="#" class="grp_home">
+                        <div class="grp_name_home">
+                          Relative
+                        </div>
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              
+              </li>
+           
           </div>
 
-            <nav class="" style="order:2; padding-top: 1.5rem;padding-bottom: 1.5rem;font-size: .875rem; position: sticky;top: 4rem;display: block !important;">
-            <ul style="padding-left: 0;border-left: 1px solid #eee;margin-top: 0;max-width: 205px !important;float: right;margin-bottom: 1rem;">
-            <div class="right-nav">
-              <div style=" padding: 8px 0 8px 8px;">
+            <nav class="left-side" >
+            <ul class="right-ul" >
+            <div class="right-nav" >
+              <div class=" groups-title">
                 GROUPS
               </div>
                 
-            <!--RELATIVE GROUP-->
+            <!--Individual GROUPs that have been added goes here-->
                   <li>
-                    <div style="color: #333;display: block;height: 32px;line-height: 32px;padding: 4px 0;position: relative;margin-bottom: 12px;">
-                      <div style="padding-left: 8px;position: relative;">
+                    <div class="group-individual" >
+                      <div class="grp" >
                         <div class="_i3e">
                           <div class="_8dnje">
                             <a href="#">
                               <div class="_254fnoe">
-                                <div style="width:32px;height:32px;">
-                                  <img src="background.jpg" width="32" height="32" style="display: block;">
+                                <div class="xsmall-img" >
+                                  <img src="background.jpg" width="32" height="32" class="block">
                                   
                                 </div>
                               </div>
@@ -108,34 +124,7 @@
                     <div>
                     </div>
                   </li>
-                  <!--WORK GROUP-->
-                  <li>
-                    <div style="color: #333;display: block;height: 32px;line-height: 32px;padding: 4px 0;position: relative;">
-                      <div style="padding-left: 8px;position: relative;">
-                        <div class="_i3e">
-                          <div class="_8dnje">
-                            <a href="#">
-                              <div class="_254fnoe">
-                                <div style="width:32px;height:32px;">
-                                  <img src="background.jpg" width="32" height="32" style="display: block;">
-                                  
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                          <div class="groupname_home _8dnje">
-                            <a href="#" class="grp_home">
-                              <div class="grp_name_home">
-                                Work
-                              </div>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                    </div>
-                  </li>
+                  
         
               </div>
               </ul>
@@ -143,43 +132,40 @@
        
             <!--THE MIDDLE PART-->
             <main class="col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" style="order: 1; ">
-              <!-- <div class="col-sm-8" style="background-color: white;">
-                <input type="search" name="" placeholder="Search" />
-              </div> -->
 
-              <div class="card" style="background-color: white; margin-top: 47px; margin-right: 313px;">
-                <div class="card-header" style="padding: 8px 0!important;padding-right: 24px !important;">
-                  <span style="position: relative;padding: 0 10px;">
-                  <span style="display: inline-block;font-size: 12px;font-weight: 600;line-height: 14px;"><strong>Create Post</strong></span></span>
+              <div class="card card-container" >
+                <div class="card-header" >
+                  <span class="span-1" >
+                  <span class="span-2"><strong>Create Post</strong></span></span>
                 </div>
                 <div class="card-body">
                   <div style="float:left;">
                     <img src="avatar.png" class="" style="width:50px; height:auto;" alt="avatar">
                   </div>
                   <div>
-                    <div style="overflow: hidden;position: relative; padding-left: 50px;">
-                      <div style="    padding-top: 18px;min-height: 71px;    line-height: 28px;     padding-right: 48px;">
-                        <div style="color: #90949c;position: absolute;width: 100%;z-index: 1;">
-                          <p >Write something....</p>
+                    <div  class="post-text">
+                      <div class="post-text-1">
+                        <div class="post-text-2" >
+                          <form class="">
+                            <input class="" type="search" placeholder="Write Something...">
+                          </form>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-               
                 <section class="create-Posts">
                   <div>
-                    <div class="photo" style="border-radius: 0 0 3px 3px;border-top: 1px solid #dddfe2; padding:10px 0px; padding-left: 10px; ">
+                    <div class="photo">
                       
                       <button type="button" style="border-radius: 18px;" class="btn btn-outline-info">Photo</button>
-  
                       
                     </div>
 
-                    <div style="border-top: 1px solid #dddfe2;  border-radius: 0 0 3px 3px;background-color: #f5f6f7;">
-                      <div style="padding: 12px 12px 10px;">
-                        <div style="color:white;">
-                          <button type="button" style="box-sizing: border-box;height: 28px;width: 100%; font-size: 12px;cursor: default;" class="btn btn-primary" data-toggle="button" aria-pressed="false" >
+                    <div class="post-btn-div">
+                      <div class="post-btn-div-2" >
+                        <div class="white-clr" >
+                          <button type="button"  class="btn btn-post-1 btn-primary" data-toggle="button" aria-pressed="false" >
                             Post
                           </button>
                         </div>
@@ -187,9 +173,50 @@
                     </div>
                   </div>
                 </section>
+              </div>
+              
 
-                <section>
-
+                <section class="posts-section">
+                  <div class="posts-section"><h5>
+                    Posts
+                  </h5></div>
+                  <div class="post-list">
+                    
+                    <div class="card crd-post">
+                      <div class="card-body" style="width:100%;">
+                        <div>
+                          <div class="small-img-container small-img float-left">
+                            <div class="small-img">
+                              <img src="background.jpg" class="block" alt="..." width="50" height="50">
+                            </div>
+                          </div>
+                          <div class="post-txt-ind" >
+                            <p class="card-title">Full Name</p>
+                            <p class="">Group Name</p>
+                          </div>
+                        </div>
+                        <div class="img-container">
+                          <div class="image" >
+                            <img src="background.jpg" class="block" alt="..." >
+                          </div>  
+                        </div>
+                        <div class="crd-txt-10">
+                          <!-- place username here -->
+                          <p class="card-text ">username</p>
+                          <!-- place there caption here -->
+                          <p class="card-text " >Caption</p>
+                        </div>
+                        <div class="crd-txt-5">
+                          <p class="card-text " >Comments...</p>
+                          <!--place individual comments here-->
+                          <div class="crd-txt-5">
+                            <p class="card-text ">user comments</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
                 </section>
              
 

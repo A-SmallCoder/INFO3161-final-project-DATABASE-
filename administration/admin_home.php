@@ -35,7 +35,7 @@
                         echo "<div class = 'user'>";
 
                         //show row from user table 
-                        echo "$row[Fname] " . "$row[lname], " . "$row[email], " . "$row[DOB]";
+                        echo "<strong>ID: </strong>$row[id]" . "<strong>Username: </strong>$row[username]" . "<strong>Name: </strong>$row[Fname] " . "$row[lname] " . "<strong>Email:</strong>$row[email] " . "<strong>Date of Birth:</strong>$row[DOB]";
                         //kind of a cheat //create form, id set as field value. text field is invisible. button sends value to userinfo page
                         echo "<form action = 'userinfo.php' method = 'post'> <input type = 'text' value ='$row[id]' name='uid'/> <button type = 'submit'>View Details</button></form>";
                             
