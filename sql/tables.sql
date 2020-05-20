@@ -1,4 +1,8 @@
+Drop database IF EXISTS DBPROJECT;
 
+Create database DBPROJECT;
+
+use DBPROJECT;
 
 create table user(id int auto_increment, Fname varchar(20), lname varchar(20),
  email varchar(100),`password` varchar(255),
@@ -63,7 +67,7 @@ create table post_image(post_id int, photo_id int,primary key(post_id,photo_id),
 
 create table make_group(group_id int not null,user_id int not null, creation_date date, primary key(group_id,user_id),
 foreign key(group_id) references `group`(group_id) on update cascade on delete cascade,
-foreign key(user_id) references user(user_id) on update cascade on delete cascade);
+foreign key(user_id) references user(id) on update cascade on delete cascade);
 
 create table group_post(post_id int, group_id int, post_date timestamp, primary key(post_id,group_id),
 foreign key(post_id) references posts(post_id), foreign key(group_id) references `group`(group_id));
