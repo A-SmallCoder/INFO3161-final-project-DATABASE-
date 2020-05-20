@@ -30,14 +30,15 @@ INTO TABLE friend
 FIELDS TERMINATED BY ',' 
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+IGNORE 1 ROWS
+(user_id,friend_id,friend_type);
 
-LOAD DATA INFILE 'profile.csv' 
-INTO TABLE user_profile 
-FIELDS TERMINATED BY ',' 
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
-(username)
+-- LOAD DATA INFILE 'profile.csv' 
+-- INTO TABLE user_profile 
+-- FIELDS TERMINATED BY ',' 
+-- ENCLOSED BY '"'
+-- LINES TERMINATED BY '\n'
+-- IGNORE 1 ROWS;
+-- (username)
 
 
