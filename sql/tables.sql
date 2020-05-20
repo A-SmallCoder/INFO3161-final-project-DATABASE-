@@ -5,12 +5,12 @@ Create database DBPROJECT;
 use DBPROJECT;
 
 create table user(id int auto_increment, Fname varchar(20), lname varchar(20),
- email varchar(100),`password` varchar(255),
+ email varchar(100), username varchar(50),`password` varchar(255),
  street varchar(100),city varchar(100),
  country varchar(50), DOB date, primary key(id));
 
- create table user_profile(profile_id int auto_increment, username varchar(50),Bio varchar(200),
-primary key(profile_id));
+ create table user_profile(profile_id int auto_increment,Bio varchar(200),
+primary key(profile_id), foreign key(user_id) references user(id));
 
 create table `group`(group_id int auto_increment, group_name varchar(50), primary key(group_id));
 
@@ -32,8 +32,8 @@ foreign key(`userID`) references user(id) on update cascade on delete cascade);
 
 create table created_on(date_created timestamp, profile_id int, user_id int,
 primary key(user_id,profile_id),
-foreign key(user_id) references User(id) on update cascade on delete cascade,
-foreign key(profile_id) references user_profile(profile_id) on update cascade on delete cascade);
+foreign key(profile_id) references user_profile(profile_id) on update cascade on delete cascade,
+foreign key(user_id) references User(id) on update cascade on delete cascade);
 
 
 

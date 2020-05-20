@@ -5,7 +5,7 @@ FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
-(Fname,lname,email,`password`,street,city,country,DOB);
+(Fname,lname,email,username,`password`,street,city,country,DOB);
 
 
 LOAD DATA INFILE 'telephone.csv' 

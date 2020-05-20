@@ -54,6 +54,13 @@ insert into make_posts(user_id, post_id,post_date) values(userID,postID,current_
 end
 $$
 
+Delimiter $$
+create procedure update_make_posts(userID int, profileID int)
+begin
+insert into created_on(user_id, profile_id) values(userID,postID,current_timestamp );
+end
+$$
+
 -- Delimiter $$
 -- Create Procedure Create_group(userID int, groupID int, groupName varchar(50))
 -- begin
