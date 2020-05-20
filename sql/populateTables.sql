@@ -28,4 +28,12 @@ FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
+(username)
 
+LOAD DATA INFILE 'created_on.csv' 
+INTO TABLE user_profile 
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+(user_id, profile_id)
