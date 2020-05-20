@@ -9,8 +9,8 @@ create table user(id int auto_increment, Fname varchar(20), lname varchar(20),
  street varchar(100),city varchar(100),
  country varchar(50), DOB date, primary key(id));
 
-create table user_profile(profile_id int auto_increment,Bio varchar(200),
-primary key(profile_id));
+create table user_profile(profile_id int auto_increment,user_id int,Bio varchar(200),
+primary key(profile_id), foreign key(user_id) references user(id) on update cascade on delete cascade);
 
 create table `group`(group_id int auto_increment, group_name varchar(50), primary key(group_id));
 
